@@ -1,0 +1,87 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: hsl(0, 0%, 98%);
+}
+.content{
+    display: flex;
+    gap: 50px;
+}
+.content1{
+    display: flex;
+    gap: 300px;
+}
+.content2{
+    display: flex;
+    gap: 300px;
+}
+.instructor{
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 20);
+    background-color: hsl(0, 80%, 40%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+a{
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding-left: 1rem;
+}
+.instructor h1{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    color: white;
+}
+table{
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 16px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.table2{
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 16px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+  /*  background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);*/
+}
+th, td{
+    border: 1px solid hsl(0, 0%, 87%);
+    text-align: left;
+    padding: 12px;
+}
+th{
+    background-color: hsl(0, 0%, 96%);
+    color: hsl(0, 0%, 20%);
+    font-weight: bold;
+}
+tr:nth-child(even){
+    background-color: hsl(0, 0%, 98%);
+}
+tr:hover{
+    background-color: hsl(0, 0%, 95%);
+}
+td a{
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: hsl(0, 0%, 0%);
+}
+td a:hover{
+    opacity: 0.8;
+}
