@@ -6,15 +6,12 @@ session_start();
 include('student/db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get user inputs
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email format.";
     }
-    // Validate password (minimum 8 characters)
     elseif (strlen($password) < 8) {
        // echo "Password must be at least 8 characters long.";
        $notvalid ="Password must be at least 8 characters long.";
@@ -22,31 +19,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "SELECT user_id, username, password_hash, role_id FROM users WHERE email = ?";
 
         if ($stmt = mysqli_prepare($conn, $query)) {
-            // Bind the parameters to the query
             mysqli_stmt_bind_param($stmt, "s", $email);
 
-            // Execute the statement
             mysqli_stmt_execute($stmt);
 
-            // Store the result
             mysqli_stmt_store_result($stmt);
 
-            // Check if the email exists
             if (mysqli_stmt_num_rows($stmt) > 0) {
-                // Bind result variables
                 mysqli_stmt_bind_result($stmt, $user_id, $username, $password_hash, $role_id);
 
-                // Fetch the result
                 mysqli_stmt_fetch($stmt);
 
-                // Verify the password
                 if (password_verify($password, $password_hash)) {
-                    // Password is correct, create session variables
                     $_SESSION['user_id'] = $user_id;
                     $_SESSION['username'] = $username;
                     $_SESSION['role_id'] = $role_id;
 
-                    // Redirect to the appropriate dashboard based on the role
                     if ($role_id == 1) {
                         header("Location: student/instructor/admin/admin_dashboard.php");
                     } elseif ($role_id == 2) {
